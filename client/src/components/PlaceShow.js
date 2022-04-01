@@ -15,7 +15,7 @@ import {
   addLike,
   removeLike,
   addToItenerary,
-  removeFromItenerary,
+  removeFromItenerary
 } from '../api/places';
 import { createReview, deleteReview } from '../api/reviews';
 import { useParams } from 'react-router-dom';
@@ -24,7 +24,7 @@ import { getAllUsers } from '../api/auth';
 
 const initialReview = {
   comment: '',
-  rating: null,
+  rating: null
 };
 
 function PlaceShow() {
@@ -53,6 +53,7 @@ function PlaceShow() {
       setHeartActive(localStorage.getItem(id) === id);
 
       const allUsersData = await getAllUsers();
+
       setAllUsers(allUsersData);
       setTabIsActive(true);
     };
@@ -176,7 +177,7 @@ function PlaceShow() {
                   initialViewState={{
                     latitude: singlePlace.lat,
                     longitude: singlePlace.long,
-                    zoom: 12,
+                    zoom: 12
                   }}
                   style={{ width: '100%', height: '100%' }}
                   mapStyle='mapbox://styles/mapbox/streets-v9'
@@ -300,7 +301,7 @@ function PlaceShow() {
                   <div className='control'>
                     <textarea
                       className='textarea'
-                      placeholder='Normal textarea'
+                      placeholder='Comment here'
                       id='comment'
                       name='comment'
                       value={review?.comment}
@@ -330,42 +331,50 @@ function PlaceShow() {
                 No current reviews for this place. Please log in to leave one.
               </p>
             )}
-            {singlePlace.reviews.map((review) => (
-              <div className='box' key={review._id}>
-                <article className='media'>
-                  <div className='media-left'>
-                    <figure className='image is-64x64'>
-                      <img
-                        src={getUserInfo(review.createdBy)?.image}
-                        alt='User Profile Image'
-                      />
-                    </figure>
-                  </div>
-                  <div className='media-content'>
-                    <div className='content'>
-                      <Rating name='read-only' value={review.rating} readOnly />
-                      <p>
-                        <strong>{getUserInfo(review.createdBy)?.name}</strong>
-                        <br />
-                        {review.comment}
-                      </p>
+            {!allUsers ? (
+              <p>Loading...</p>
+            ) : (
+              singlePlace.reviews.map((review) => (
+                <div className='box' key={review._id}>
+                  <article className='media'>
+                    <div className='media-left'>
+                      <figure className='image is-64x64'>
+                        <img
+                          src={getUserInfo(review.createdBy)?.image}
+                          alt='User Profile Image'
+                        />
+                      </figure>
                     </div>
-                  </div>
-                  <div>
-                    {(getLoggedInUserId() === review.createdBy ||
-                      isAdmin()) && (
-                      <button
-                        type='button'
-                        className='button is-danger is-small is-outlined'
-                        onClick={() => handleDeleteReview(review._id)}
-                      >
-                        Delete Review
-                      </button>
-                    )}
-                  </div>
-                </article>
-              </div>
-            ))}
+                    <div className='media-content'>
+                      <div className='content'>
+                        <Rating
+                          name='read-only'
+                          value={review.rating}
+                          readOnly
+                        />
+                        <p>
+                          <strong>{getUserInfo(review.createdBy)?.name}</strong>
+                          <br />
+                          {review.comment}
+                        </p>
+                      </div>
+                    </div>
+                    <div>
+                      {(getLoggedInUserId() === review.createdBy ||
+                        isAdmin()) && (
+                        <button
+                          type='button'
+                          className='button is-danger is-small is-outlined'
+                          onClick={() => handleDeleteReview(review._id)}
+                        >
+                          Delete Review
+                        </button>
+                      )}
+                    </div>
+                  </article>
+                </div>
+              ))
+            )}
           </div>
         </div>
       </section>
@@ -385,15 +394,15 @@ function PlaceShow() {
             gap: '20px',
             breakpoints: {
               1024: {
-                perPage: 3,
+                perPage: 3
               },
               768: {
-                perPage: 2,
+                perPage: 2
               },
               500: {
-                perPage: 1,
-              },
-            },
+                perPage: 1
+              }
+            }
           }}
         >
           {category ? (
