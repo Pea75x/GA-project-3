@@ -28,7 +28,7 @@ As a group we started by deciding what our web application wanted to be about. W
 
 As a group we used Trello to organise the tasks and color coded the tasks to identify the action owner. Each member of the group worked full stack. We developed the backend first, before focussing our attention on the frontend. We would come together to merge conflicts and review each other's code in a daily stand-up each morning and would also collaborate on an adhoc basis if anyone was having difficulties. My primary focus on the backend included seeding the data, creating the review controller and putting together the secure route - on the frontend, it included the PlaceShow.js component and the MapSearch.js.
 
-![Trello board]](client/src/images/readme-images/trello-boardl.png)
+![Trello board]](client/src/images/readme-images/trello-board.png)
 
 ### **2) Functionality**
 
