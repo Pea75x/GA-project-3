@@ -1,4 +1,4 @@
-# Big Smoke - GA SEI Project 3
+# Big Smoke - GA SEI Project PRIYA
 
 ## Project Overview
 
