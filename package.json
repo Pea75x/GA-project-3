@@ -20,12 +20,23 @@
     "express-mongo-sanitize": "^2.2.0",
     "googleapis": "^97.0.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.2.8",
+    "mongoose": "^6.3.4",
     "mongoose-hidden": "^1.9.1",
     "mongoose-unique-validator": "^3.0.0",
     "sanitize": "^2.1.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
-  }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pea75x/GA-project-3-backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Pea75x/GA-project-3-backend/issues"
+  },
+  "homepage": "https://github.com/Pea75x/GA-project-3-backend#readme"
 }
